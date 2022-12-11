@@ -35,7 +35,7 @@ pipeline {
         string(name: 'REGISTRY', description: 'registry to push to; leave blank for Docker Hub')
         string(name: 'REGISTRY_CREDS_ID', description: 'creds ID to use to push project to registry')
         booleanParam(name: 'CREATE_SINGLE_MANIFEST_FOR_ALL_ARCHS', defaultValue: true, description: 'create a manifest that points to images of all built architectures; can only be used if PUSH is true')
-        booleanParam(name: 'CLEAN_UP_SINGLE_ARCH_REPOS', defaultValue: true, description: 'delete single-architecture repos; can only be used if PUSH is true, the REGISTRY is blank (Docker Hub), and CREATE_SINGLE_MANIFEST_FOR_ALL_ARCHS is true')
+        booleanParam(name: 'CLEAN_UP_SINGLE_ARCH_REPOS', defaultValue: true, description: 'delete single-architecture repos; can only be used if PUSH is true, REGISTRY is blank (Docker Hub), and CREATE_SINGLE_MANIFEST_FOR_ALL_ARCHS is true')
         string(name: 'IMAGES_FOLDER', defaultValue: 'images', description: 'location where specifically versioned Docker images are in repo')
         string(name: 'IMAGE_NAME', description: 'name of image when built; leave blank to use git repo name')
         string(name: 'ARCHS', description: 'platforms to build images for, space delimited; leave blank for all')
