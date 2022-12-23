@@ -28,7 +28,7 @@ pipeline {
     }
     parameters {
         string(name: 'GIT_LOCATION', description: 'location of project to build')
-        string(name: 'GIT_BRANCH', defaultValue: 'main', description: 'branch of project to release from')
+        string(name: 'GIT_TARGET_BRANCH', defaultValue: 'main', description: 'branch of project to release from')
         string(name: 'GIT_CREDS_ID', description: 'creds ID to use to pull project from remote')
         booleanParam(name: 'PUSH', description: 'whether or not to push the image to a registry')
         booleanParam(name: 'SAVE', description: 'whether or not to save the Docker image to an artifact; note that these can be very big files')
@@ -53,7 +53,7 @@ pipeline {
                             $class: 'GitSCM',
                             branches: [
                                 [
-                                    name: params.GIT_BRANCH
+                                    name: params.GIT_TARGET_BRANCH
                                 ]
                             ],
                             doGenerateSubmoduleConfigurations: false,

@@ -13,7 +13,7 @@ If you add a file called `cicd/docker-images.yaml` to your repo, this file will 
 ### Parameters
 
 - `GIT_LOCATION`: The full `git` URL of the project to build
-- `GIT_BRANCH`: The name of the branch to build the images from
+- `GIT_TARGET_BRANCH`: The name of the branch to build the images from
 - `GIT_CREDS_ID`: The Jenkins credentials ID used to clone the `git` repo
 - `PUSH`: Whether or not to push the image to a registry
 - `SAVE`: Whether or not to save the created Docker images to Jenkins artifacts
