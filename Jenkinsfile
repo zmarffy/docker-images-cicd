@@ -163,20 +163,7 @@ pipeline {
                         }
                     }
 
-                    // Get archs to build
-                    def hasDockerNodeNames = nodesByLabel(
-                        label: 'hasdocker',
-                        offline: false
-                    )
-                    def hasDockerComputers = jenkins.model.Jenkins.get().computers.findAll { it.name in hasDockerNodeNames }
-                    hasDockerComputers.each {
-                        COMPUTER_DATA.add(
-                            [
-                                'name': it.name,
-                                'arch': it.getSystemProperties().get('os.arch')
-                            ]
-                        )
-                    }
+                    COMPUTER_DATA = getNodeData().findAll { it.online && HAS_DOCKER_LABEL in it.labels }
                     def possibleArchs = COMPUTER_DATA.collect { it.arch }.unique()
                     if (!possibleArchs) {
                         // Impossible...
